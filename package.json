@@ -1,0 +1,24 @@
+{
+  "name": "dinoql-demo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "dinoql": "^0.3.4"
+  },
+  "scripts": {
+    "build:js": "npx browserify app.js > index.js && live-server --no-browser",
+    "build:watch": "nodemon --exec yarn build:js"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "node_modules/*",
+      "index.js"
+    ]
+  },
+  "devDependencies": {
+    "browserify": "^16.2.3",
+    "live-server": "^1.2.1",
+    "nodemon": "^1.19.0"
+  }
+}
