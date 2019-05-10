@@ -1,5 +1,6 @@
 window=global||window
 const dinoql  = require("dinoql")
+const gql =  require("graphql-tag")
 const data = {
     requests: {
       products: [],
@@ -21,15 +22,51 @@ const data = {
       }]
     }
   }
-const users = dinoql(data)`
-requests {
-  users {
-    name
-    id
+
+const userQuery = gql`
+query userQuery {
+  requests {
+    users {
+      name
+      id
+    }
+    friends {
+       name
+    }
   }
-  friends {
-     name
-  }
+
 }
+
 `
+
+
+const userQuery2 = `
+  requests {
+    users {
+      name
+      id
+    }
+    friends {
+       name
+    }
+  }
+`
+
+// this is one way  to call  query 
+// const users = dinoql(data)`
+// requests {
+//   users {
+//     name
+//     id
+//   }
+//   friends {
+//      name
+//   }
+// }
+// `
+
+
+// you can alse use graphql-tag graphql query utilities 
+
+const users = dinoql(data)(userQuery)
 console.log(users)

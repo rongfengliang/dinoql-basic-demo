@@ -4,11 +4,13 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
-    "dinoql": "^0.3.4"
+    "dinoql": "^0.3.4",
+    "graphql-tag": "^2.10.1"
   },
   "scripts": {
     "build:js": "npx browserify app.js > index.js && live-server --no-browser",
-    "build:watch": "nodemon --exec yarn build:js"
+    "build:watch": "nodemon --exec yarn build:js",
+    "run:node":"node app"
   },
   "nodemonConfig": {
     "ignore": [
