@@ -24,10 +24,9 @@ const data = {
   }
 
 const userQuery = gql`
-query userQuery {
+query rong {
   requests {
     users {
-      name
       id
     }
     friends {
@@ -39,34 +38,17 @@ query userQuery {
 
 `
 
-
-const userQuery2 = `
+const idQuery = gql `
+query userids {
   requests {
     users {
-      name
       id
     }
-    friends {
-       name
-    }
   }
+}
 `
-
-// this is one way  to call  query 
-// const users = dinoql(data)`
-// requests {
-//   users {
-//     name
-//     id
-//   }
-//   friends {
-//      name
-//   }
-// }
-// `
-
-
-// you can alse use graphql-tag graphql query utilities 
-
 const users = dinoql(data)(userQuery)
 console.log(users)
+
+const userids = dinoql(data)(idQuery)
+console.log(userids)
